@@ -1,0 +1,163 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    overflow: hidden;
+    background: #1a1410;
+}
+
+/* Main container */
+.container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Shadow Play Stage Canvas */
+#stage {
+    width: 100%;
+    height: 100%;
+    display: block;
+    cursor: none;
+}
+
+/* Hidden webcam video */
+#webcam {
+    display: none;
+}
+
+/* Loading screen */
+#loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, #3d2a1f 0%, #1a1410 70%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.5s ease;
+}
+
+#loading.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loading-text {
+    font-size: 2rem;
+    color: #f4d03f;
+    text-shadow: 0 0 20px rgba(244, 208, 63, 0.5);
+    margin-bottom: 1rem;
+}
+
+.loading-subtitle {
+    font-size: 1.2rem;
+    color: #c9a961;
+    font-style: italic;
+}
+
+/* Instructions overlay */
+#instructions {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(26, 20, 16, 0.95);
+    border: 3px solid #f4d03f;
+    border-radius: 15px;
+    padding: 2rem 3rem;
+    text-align: center;
+    color: #f4d03f;
+    z-index: 100;
+    box-shadow: 0 0 40px rgba(244, 208, 63, 0.3);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#instructions.hidden {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+    pointer-events: none;
+}
+
+#instructions h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 20px rgba(244, 208, 63, 0.6);
+}
+
+#instructions p {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+    color: #e6c86e;
+}
+
+.gesture-info {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin: 2rem 0;
+    padding: 1.5rem 0;
+    border-top: 2px solid rgba(244, 208, 63, 0.3);
+    border-bottom: 2px solid rgba(244, 208, 63, 0.3);
+}
+
+.gesture {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.gesture-icon {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.gesture span:last-child {
+    font-size: 1rem;
+    color: #c9a961;
+}
+
+.small {
+    font-size: 0.9rem;
+    color: #a08850;
+    font-style: italic;
+    margin-top: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #instructions {
+        padding: 1.5rem 2rem;
+        max-width: 90%;
+    }
+
+    #instructions h2 {
+        font-size: 2rem;
+    }
+
+    #instructions p {
+        font-size: 1rem;
+    }
+
+    .gesture-info {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .gesture-icon {
+        font-size: 2.5rem;
+    }
+}

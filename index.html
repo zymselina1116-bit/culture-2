@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadow Puppetry - Hand Tracking Battle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Shadow Play Stage -->
+        <canvas id="stage"></canvas>
+
+        <!-- Hidden webcam video element -->
+        <video id="webcam" autoplay playsinline></video>
+
+        <!-- Loading indicator -->
+        <div id="loading">
+            <div class="loading-text">Initializing Hand Tracking...</div>
+            <div class="loading-subtitle">Please allow camera access</div>
+        </div>
+
+        <!-- Instructions overlay (hidden after first gesture) -->
+        <div id="instructions">
+            <h2>Shadow Puppetry Battle</h2>
+            <p><strong>Left Hand</strong> controls Left Character</p>
+            <p><strong>Right Hand</strong> controls Right Character</p>
+            <div class="gesture-info">
+                <div class="gesture">
+                    <span class="gesture-icon">✊</span>
+                    <span>FIST = Move character</span>
+                </div>
+                <div class="gesture">
+                    <span class="gesture-icon">🖐️</span>
+                    <span>OPEN PALM = Attack mode</span>
+                </div>
+            </div>
+            <p class="small">Raise both hands to begin</p>
+        </div>
+    </div>
+
+    <!-- MediaPipe Hands CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+
+    <!-- Main application script -->
+    <script src="script.js"></script>
+</body>
+</html>
